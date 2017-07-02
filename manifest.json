@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name": "Page recognizer",
+	"version": "0.0.1",
+	"description": "Show the icon to recognize opening page easier. It is a little bit useful if you are a web developer since we have test environment, local environment and so on to check before the application released to production environment.",
+	"icons": {
+		"24": "images/icon24.png"
+	},
+	"browser_action": {
+		"default_title": "Page recognizer",
+		"default_icon": {
+			"24": "images/icon24.png"
+		}
+	},
+	"background": {
+		"persistent": false,
+		"scripts": ["bg.js"]
+	},
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["content.js"],
+		"css": ["content.css"]
+	}],
+	"permissions": [
+		"tabs",
+		"storage"
+	]
+}
